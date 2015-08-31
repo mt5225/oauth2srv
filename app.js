@@ -17,6 +17,7 @@ app.set('view engine', 'ejs');
 app.use(express.logger());
 app.use(express.cookieParser());
 app.use(express.bodyParser());
+app.use(express.static(__dirname + '/public'));
 app.use(express.session({ secret: 'keyboard cat' }));
 /*
 app.use(function(req, res, next) {
