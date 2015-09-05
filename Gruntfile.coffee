@@ -14,7 +14,7 @@ module.exports = (grunt) ->
         options: config: 'myhost_prod'      
     sftp:
       qa:
-        files:  './': ['**/*.js', '**/*.html', '!**/node_modules/**']
+        files:  './': ['**/*.*', '!**/node_modules/**']
         options:
           config: 'myhost_qa'
           path: '/root/oauth2srv/'

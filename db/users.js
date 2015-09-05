@@ -1,7 +1,4 @@
-var users = [
-    { id: '1', username: 'bob', password: 'secret', name: 'Bob Smith' },
-    { id: '2', username: 'joe', password: 'password', name: 'Joe Davis' }
-];
+var users = [];
 
 
 exports.find = function(id, done) {
@@ -22,4 +19,16 @@ exports.findByUsername = function(username, done) {
     }
   }
   return done(null, null);
+};
+
+exports.findByReq = function(req, done) {
+  user = {};
+  user.id = req.param('openid');
+  user.username = req.param('nickname');
+  user.password = req.param('openid');
+  user.name = req.param('nickname');
+  user.avatar = req.param('avatar');
+  console.log(user);
+  users.push(user);
+  return done(null, user);
 };

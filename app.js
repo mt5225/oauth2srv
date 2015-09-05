@@ -34,7 +34,6 @@ app.use(app.router);
 app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 
 // Passport configuration
-
 require('./auth');
 
 
@@ -43,6 +42,8 @@ app.get('/login', site.loginForm);
 app.post('/login', site.login);
 app.get('/logout', site.logout);
 app.get('/account', site.account);
+app.get('/api/wx/openid', site.openid);
+app.get('/api/login', site.apilogin);
 
 app.get('/dialog/authorize', oauth2.authorization);
 app.post('/dialog/authorize/decision', oauth2.decision);
@@ -50,5 +51,7 @@ app.post('/oauth/token', oauth2.token);
 
 app.get('/api/userinfo', user.info);
 app.get('/api/clientinfo', client.info);
+
+
 
 app.listen(3008);

@@ -1,0 +1,8 @@
+<h4> redirecting ... </h4>
+
+<script type="text/javascript">
+redirect_uri = encodeURIComponent("http://qa.aghchina.com.cn:3000/api/useroauth");
+url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe2bdce057501817d&redirect_uri=" + redirect_uri + "&response_type=code&scope=snsapi_userinfo&state=nodebb";
+console.debug("redirect user to auth page with api-endpoint as callback");
+window.location.href = url;
+</script>

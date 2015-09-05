@@ -1,11 +1,14 @@
-<p>Hi there!</p>
-<p><b><%= client.name %></b> is requesting access to your account.</p>
-<p>Do you approve?</p>
-
-<form action="/dialog/authorize/decision" method="post">
+<div class="container">
+<h3><b>漫生活部落</b> 请求访问您的微信基本信息</h3>
+<form action="/dialog/authorize/decision" method="post" role="form" class="form-horizontal">
   <input name="transaction_id" type="hidden" value="<%= transactionID %>">
-  <div>
-  <input type="submit" value="Allow" id="allow">
-  <input type="submit" value="Deny" name="cancel" id="deny">
+  <div class="row">
+      <div class="form-group"> 
+        <div class="col-md-8">
+          <input class="btn btn-success btn-md" type="submit" value="同意" id="allow">
+          <input class="btn btn-danger btn-md" type="submit" value="不同意" name="cancel" id="deny">      
+        </div>
+      </div>
   </div>
 </form>
+</div>

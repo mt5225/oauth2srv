@@ -16,9 +16,15 @@ var db = require('./db');
  * Anytime a request is made to authorize an application, we must ensure that
  * a user is logged in before asking them to approve the request.
  */
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    db.users.findByUsername(username, function(err, user) {
+passport.use(new LocalStrategy({
+    usernameField: 'openid',
+    passwordField: 'openid',
+    passReqToCallback: true
+  },
+  function(req, username, password, done) {
+    console.log( "openid=" + req.param('openid'));
+    console.log("nickname=" + req.param('nickname'));
+    db.users.findByReq(req, function(err, user) {
       if (err) { return done(err); }
       if (!user) { return done(null, false); }
       if (user.password != password) { return done(null, false); }
